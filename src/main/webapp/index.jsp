@@ -1,6 +1,6 @@
 <html>
 <body>
-<h2>Hello Worldljaldjgit pushlawjdlj!</h2>
-<p>приглашение к празднику</p>
+<h2>Hello World!</h2>
+
 </body>
 </html>
