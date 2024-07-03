@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 
 public class JdbcDataSource {
 
+    private static Connection connection = null;
     public static Connection getConnection() {
-        Connection connection = null;
         try {
 //            Properties prop = new Properties();
 //            InputStream inputStream = JdbcDataSource.class.getClassLoader().getResourceAsStream("./config.properties");
