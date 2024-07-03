@@ -13,9 +13,9 @@ public class JdbcDataSource {
 
     public static Connection getConnection() {
         try {
-            Properties prop = new Properties();
-            InputStream inputStream = JdbcDataSource.class.getClassLoader().getResourceAsStream("./config.properties");
-            prop.load(inputStream);
+//            Properties prop = new Properties();
+//            InputStream inputStream = JdbcDataSource.class.getClassLoader().getResourceAsStream("./config.properties");
+//            prop.load(inputStream);
 
 //            String driver = prop.getProperty("db.driver");
 //            String user = prop.getProperty("db.username");
@@ -26,7 +26,7 @@ public class JdbcDataSource {
 //            connection = DriverManager.getConnection(url, user, password);
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection("jdbc:postgresql:/192.168.100.14:5432/usersapp","postgres", "postgres");
-        } catch (ClassNotFoundException | SQLException | IOException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return connection;
