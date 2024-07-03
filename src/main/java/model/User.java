@@ -6,6 +6,23 @@ public class User {
     private String surname;
     private Integer age;
 
+    public User(String name, String surname, int age) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
+
+    public User(Integer id, String name, String surname, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
+
+    public User() {
+    }
+
+
     public Integer getId() {
         return id;
     }
@@ -36,5 +53,10 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User: id[" + id + "] name[" + name + "] surname[" + surname + "] age[" + age + "]";
     }
 }

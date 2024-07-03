@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/save" method="post">
+<form action="/create" method="post">
     <table>
         <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
         <tr><td>Surname:</td><td><input type="text" name="surname"/></td></tr>
