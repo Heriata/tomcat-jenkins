@@ -11,8 +11,9 @@ public class UserDAO {
         Connection connection = null;
 
         try {
-            Class.forName("");
-            connection = DriverManager.getConnection(" ");
+            Class.forName("org.postgresql.Driver");
+//            connection = DriverManager.getConnection(DBConfig.getDbUrl(),DBConfig.getDbUsername(),DBConfig.getDbPassword());
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/usersapp","postgres","postgres");
         } catch (Exception e) {
             e.printStackTrace();
         }
