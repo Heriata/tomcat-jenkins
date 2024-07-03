@@ -17,13 +17,15 @@ public class JdbcDataSource {
             InputStream inputStream = JdbcDataSource.class.getClassLoader().getResourceAsStream("./config.properties");
             prop.load(inputStream);
 
-            String driver = prop.getProperty("db.driver");
-            String url = prop.getProperty("db.url");
-            String user = prop.getProperty("db.username");
-            String password = prop.getProperty("db.password");
+//            String driver = prop.getProperty("db.driver");
+//            String user = prop.getProperty("db.username");
+//            String password = prop.getProperty("db.password");
+//            String url = prop.getProperty("db.url");
 
-            Class.forName(driver);
-            connection = DriverManager.getConnection(url, user, password);
+//            Class.forName(driver);
+//            connection = DriverManager.getConnection(url, user, password);
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection("jdbc:postgresql:/192.168.100.14:5432/usersapp","postgres", "postgres");
         } catch (ClassNotFoundException | SQLException | IOException e) {
             e.printStackTrace();
         }
