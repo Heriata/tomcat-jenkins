@@ -10,6 +10,6 @@
 </head>
 <body>
 <a href="/users">List users</a>
-<a href="users/add">Add user</a>
+<a href="/adduser">Add user</a>
 </body>
 </html>
