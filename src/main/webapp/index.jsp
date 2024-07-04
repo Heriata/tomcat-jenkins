@@ -9,7 +9,7 @@
     <link href="index.css">
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/users">List users</a>
+<a href="/users">List users</a>
 <a href="users/add">Add user</a>
 </body>
 </html>
