@@ -20,7 +20,7 @@ public class JdbcDataSource {
 //            Class.forName(driver);
 //            connection = DriverManager.getConnection(url, user, password);
             Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection("jdbc:postgresql://192.168.100.11:5432/user_app", "postgres", "");
+            connection = DriverManager.getConnection("jdbc:postgresql://192.168.100.11:5432/user_app", "postgres", "postgres");
 
             if (connection == null) throw new RuntimeException("Connection to DB was not established");
         } catch (Exception e) {
