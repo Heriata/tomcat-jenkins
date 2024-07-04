@@ -1,39 +1,40 @@
 package controller;
 
-import config.UserDAO;
-import model.User;
+import service.UserService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class EditServlet extends HttpServlet {
+@WebListener("/users/add")
+public class AddUser extends HttpServlet {
 
-    UserDAO userDAO;
+    private UserService userService;
     @Override
     public void init() throws ServletException {
-        userDAO = new UserDAO();
+        super.init();
+        userService = (UserService) getServletContext().getAttribute("userService");
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        User user = userDAO.getById(id);
-
-        req.setAttribute("user", user);
-        getServletContext().getRequestDispatcher("/edit.jsp").forward(req,resp);
+        req.getRequestDispatcher("/useradd.jsp").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
-        int age = Integer.parseInt(req.getParameter("age"));
+        Integer age = Integer.valueOf(req.getParameter("age"));
 
-        userDAO.update(new User(id, name, surname, age));
-        resp.sendRedirect(req.getContextPath()+"/index");
+        try{
+            userService.addUser(name, surname, age);
+            resp.sendRedirect("/index.jsp");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -1,27 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=UTF-8" %>
-
 <html>
 <head>
-    <title>edit</title>
-    <link />
+    <title>Edit User</title>
 </head>
 <body>
-<h2>edit user</h2>
-
-<form method="post">
-    <input type="hidden" value="${requestScope.user.id}" name="id"/>
-    <label>name</label>
-    <label>
-        <input value="${requestScope.user.name}" name="name"/>
-    </label>
-    <label>
-        <input value="${requestScope.user.surname}" name="surname"/>
-    </label>
-    <label>
-        <input value="${requestScope.user.age}" name="age"/>
-    </label>
-    <input type="submit" value="save">
-</form>
+<h1>Edit User</h1>
+<c:if test="${user != null}">
+    <form action="${pageContext.request.contextPath}/user/edit" method="post">
+        <input type="hidden" name="id" value="<c:out value="${user.id}" />">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="<c:out value="${user.name}" />" required><br><br>
+        <label for="surname">Surname:</label>
+        <input type="text" name="surname" value="<c:out value="${user.surname}" />" required><br><br>
+        <label for="age">Age:</label>
+        <input type="text" name="age" value="<c:out value="${user.age}" />" required><br><br>
+        <input type="submit" value="Update User">
+    </form>
+</c:if>
+<c:if test="${user == null}">
+    <p>Error: User not found!</p>
+</c:if>
 </body>
 </html>

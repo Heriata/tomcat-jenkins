@@ -1,28 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ page contentType="text/html; charset=UTF-8" %>
-
 <html>
 <head>
-    <title>create user</title>
-    <link/>
+    <title>Add User</title>
 </head>
 <body>
-<h2>create new user</h2>
-<form>
-    <label>name</label>
-    <label>
-        <input name="name" required/>
-    </label>
-    <label>surname</label>
-    <label>
-        <input name="surname" required/>
-    </label>
-    <label>age</label>
-    <label>
-        <input name="age" required/>
-    </label>
-    <input type="submit" value="save">
+<h1>Add User</h1>
+<form action="${pageContext.request.contextPath}/users/add" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required><br><br>
+    <label for="surname">Surname:</label>
+    <input type="text" name="surname" required><br><br>
+    <label for="surname">Age:</label>
+    <input type="text" name="age" required><br><br>
+    <input type="submit" value="Add User">
 </form>
-
 </body>
 </html>
